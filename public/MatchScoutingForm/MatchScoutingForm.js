@@ -137,7 +137,7 @@ function writeNewPost() {
         }
     }
     if (robotEndPositionValue == null || robotEndPositionValue == "")
-        robotEndPositionValue = "defaultEndPosition";
+        robotEndPositionValue = "defaultPosition";
     var helpedOthersClimb = document.getElementById("helpedOthersClimb").checked ? true : false;
     var assistedLevel2Climbs = document.getElementById("assistedLevel2Climbs").value;
     if (assistedLevel2Climbs == null || assistedLevel2Climbs == "")
@@ -181,8 +181,8 @@ function writeNewPost() {
             "PlayedDefense": playedDefense,
             "RobotEndPosition": robotEndPositionValue,
             "HelpedOthersClimb": helpedOthersClimb,
-            "assistedLevel2Climbs": assistedLevel2Climbs,
-            "assistedLevel3Climbs": assistedLevel3Climbs,
+            "AssistedLevel2Climbs": assistedLevel2Climbs,
+            "AssistedLevel3Climbs": assistedLevel3Climbs,
             "EverInactive": everInactive,
             "Comments": comments
 
@@ -192,11 +192,11 @@ function writeNewPost() {
     console.log(postData);
     postData = JSON.stringify(postData);
 
-//    var xhr = new XMLHttpRequest();
-//    var url = "https://script.google.com/macros/s/AKfycbwWzE-GlcGUeAxwpS1_IJ4vYIUJTDUa3fbK0pUXPMPj2Qn_X3E/exec";
-//    xhr.open("POST", url, true);
-//    xhr.send(postData);
-//
+    var xhr = new XMLHttpRequest();
+    var url = "https://script.google.com/macros/s/AKfycbxX0uNCpgOMGFuD225KOYNrDALAh1mW64hV5ukrwEi1IYFW1LQk/exec";
+    xhr.open("POST", url, true);
+    xhr.send(postData);
+
 //    //renames the outmost hierarchy of JSON which makes no duplicates
 //    postData = postData.replace("\"Data\"", "\"" + competition + " | Team " + teamNumber + " | Qualification Match " + matchNumber + "\"");
 //    postData = JSON.parse(postData);

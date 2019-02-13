@@ -1,0 +1,410 @@
+<html>
+
+<head>
+
+    <title>2614 Scouting Form</title>
+    <meta charset="utf-8">
+
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css' integrity='sa384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ' crossorigin='anonymous'>
+    <script src='https://code.jquery.com/jquery-3.1.1.slim.min.js' integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js' integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb' crossorigin='anonymous'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js' integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn' crossorigin='anonymous'></script>
+
+    <!-- Files -->
+    <script src="SuperScoutingForm.js"></script>
+    <link rel='stylesheet' type='text/css' href='SuperScoutingForm.css' />
+
+</head>
+
+<body>
+
+    <a href="https://mars2614-scouting-2019.firebaseapp.com/" target="_blank">
+        <h1>MARS Scouting</h1>
+    </a>
+
+    <br>
+    <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#preMatch" aria-expanded="true" aria-controls="preMatch">
+        Prematch
+    </button>
+    <div class="container-fluid collapse show" id="preMatch">
+        <div class='row'>
+
+            <div class='col-sm-3'>
+                Scout Name
+                <input type='text' class='form-control' name='scoutName' id='scoutName' placeholder='Scout Name' />
+            </div>
+
+            <div class='col-sm-3'>
+                Scout Team
+                <input type='text' pattern="\d*" class='form-control' name='scoutTeam' id='scoutTeam' placeholder='2614' min='1' max='10000' />
+            </div>
+
+            <div class='col'>
+                Competition
+                <select class='form-control' name='competition' id='competition' onchange='inputOtherCompetition(this.options[this.selectedIndex].value)'>
+                    <option> Select Competition </option>
+                    <option selected value='Einstein'> Einstein</option>
+                    <option value='Palmetto'>Palmetto</option>
+                    <option value='Smoky'>Smoky</option>
+                    <option value='Detroit'>Detroit</option>
+                    <option value='Other'>Other</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div id='otherCompetitionInput'></div>
+
+        <div class='row'>
+
+            <div class='col-sm-6'>
+
+                Alliance
+                <div class='btn-group w-100' data-toggle='buttons'>
+                    <label class='btn btn-outline-danger w-50'>
+                        <input type='radio' name='alliance' id='redAlliance' value='red'>Red Alliance
+                    </label>
+
+                    <label class='btn btn-outline-primary w-50'>
+                        <input type='radio' name='alliance' id='blueAlliance' value='blue'>Blue Alliance
+                    </label>
+                </div>
+
+
+            </div>
+
+            <div class='col'>
+                Match Number
+                <input type='text' pattern="\d*" class='form-control' name='matchNumber' id='matchNumber' placeholder='0' min='0' max='200' />
+            </div>
+            <div class="row w-100 m-0">
+                <div class='col'>
+                    Team 1
+                    <input list="teams" pattern="\d*" class='form-control' name='teamNumber' id='teamNumber1' onchange="updateTeamNum(1)" placeholder='0' min='0' max='9999' />
+                    <datalist id="teams">
+                        <option value=20>
+                        <option value=33>
+                        <option value=67>
+                        <option value=88>
+                        <option value=118>
+                        <option value=148>
+                        <option value=195>
+                        <option value=217>
+                        <option value=225>
+                        <option value=234>
+                        <option value=254>
+                        <option value=319>
+                        <option value=359>
+                        <option value=384>
+                        <option value=469>
+                    </datalist>
+                </div>
+                <div class='col'>
+                    Team 2
+                    <input list="teams" pattern="\d*" class='form-control' name='teamNumber' id='teamNumber2' onchange="updateTeamNum(2)" placeholder='0' min='0' max='9999' />
+                </div>
+                <div class='col'>
+                    Team 3
+                    <input list="teams" pattern="\d*" class='form-control' name='teamNumber' id='teamNumber3' onchange="updateTeamNum(3)" placeholder='0' min='0' max='9999' />
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+    <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#autonomous" aria-expanded="true" aria-controls="Autonomous">
+        Autonomous
+    </button>
+
+    <div class="collapse show" id="autonomous">
+        <br>
+        <div class="col">
+            <span class='team1'>Team 1</span>
+            <br>
+            Auto Descrip
+            <input list="autos" class='form-control' name="autoDescrip" id='autoDescrip1' placeholder="No Auto" />
+            <datalist id="autos">
+                <option value="No Auto">
+                <option value="Cargo Ship 1 Hatch">
+                <option value="Cargo Ship 2 Hatch">
+                <option value="Cargo Ship 3 Hatch">
+                <option value="Cargo Ship 1 Cargo">
+                <option value="Cargo Ship 2 Cargo">
+                <option value="Rocket 1 Hatch">
+                <option value="Rocket 2 Hatch">
+                <option value="Rocket 1 Cargo">
+                <option value="Rocket 2 Cargo">
+            </datalist>
+        </div>
+
+        <div class="col">
+            <span class="team2"> Team 2</span><br>
+            Auto Descrip
+            <input list="autos" class='form-control' name="autoDescrip" id='autoDescrip2' placeholder='No Auto' />
+        </div>
+
+        <div class="col">
+            <span class="team3">Team 3</span><br>
+            Auto Descrip
+            <input list="autos" class='form-control' name="autoDescrip" id='autoDescrip3' placeholder='No Auto' />
+
+        </div>
+
+
+        <br>
+
+    </div>
+
+
+    <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#teleop" aria-expanded="true" aria-controls="teleop">
+        Teleop
+    </button>
+
+    <div class="container-fluid collapse show" id="teleop">
+        <div class="row">
+            <div class="col-4 p-0">
+                <span class="team1">Team 1</span><br>
+
+                <div class="col">
+                    <div class="btn-group-vertical w-100">
+                        Fouls
+                        <button type="button" onclick="increment(1,'fouls1')" class="btn btn-warning">+</button>
+                        <input type="number" id="fouls1" placeholder="0" min="0" class="btn btn-default">
+                        <button type="button" onclick="increment(-1,'fouls1')" class="btn btn-warning">-</button>
+                    </div>
+                    <div class="btn-group-vertical w-100">
+                        Tech Fouls
+                        <button type="button" onclick="increment(1,'techFouls1')" class="btn btn-danger">+</button>
+                        <input type="number" id="techFouls1" placeholder="0" min="0" class="btn btn-default">
+                        <button type="button" onclick="increment(-1,'techFouls1')" class="btn btn-danger">-</button>
+                    </div>
+                </div>
+
+                Rocket Placing
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="placementPosition1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Placement
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="placementPosition1">
+                        <a class="dropdown-item" href="javascript:return false;">All sides</a>
+                        <a class="dropdown-item" href="javascript:return false;">Near and Middle Side</a>
+                        <a class="dropdown-item" href="javascript:return false;">Near Side</a>
+                        <a class="dropdown-item" href="javascript:return false;">Can't place </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-0">
+                <span class='team2'> Team 2</span><br>
+
+                <div class="col">
+                    <div class="btn-group-vertical w-100">
+                        Fouls
+                        <button type="button" onclick="increment(1,'fouls2')" class="btn btn-warning">+</button>
+                        <input type="number" id="fouls2" placeholder="0" min="0" class="btn btn-default">
+                        <button type="button" onclick="increment(-1,'fouls2')" class="btn btn-warning">-</button>
+                    </div>
+                    <div class="btn-group-vertical w-100">
+                        Tech Fouls
+                        <button type="button" onclick="increment(1,'techFouls2')" class="btn btn-danger">+</button>
+                        <input type="number" id="techFouls2" placeholder="0" min="0" class="btn btn-default">
+                        <button type="button" onclick="increment(-1,'techFouls2')" class="btn btn-danger ">-</button>
+                    </div>
+                </div>
+
+                Rocket Placing
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="placementPosition2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Placement
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="placementPosition2">
+                        <a class="dropdown-item" href="javascript:return false;">All sides</a>
+                        <a class="dropdown-item" href="javascript:return false;">Near and Middle Side</a>
+                        <a class="dropdown-item" href="javascript:return false;">Near Side</a>
+                        <a class="dropdown-item" href="javascript:return false;">Can't place </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-0">
+                <span class="team3">Team 3</span><br>
+
+                <div class="col">
+                    <div class="btn-group-vertical w-100">
+                        Fouls
+                        <button type="button" onclick="increment(1,'fouls3')" class="btn btn-warning">+</button>
+                        <input type="number" id="fouls2" placeholder="0" min="0" class="btn btn-default">
+                        <button type="button" onclick="increment(-1,'fouls3')" class="btn btn-warning">-</button>
+                    </div>
+                    <div class="btn-group-vertical w-100">
+                        Tech Fouls
+                        <button type="button" onclick="increment(1,'techFouls3')" class="btn btn-danger">+</button>
+                        <input type="number" id="techFouls3" placeholder="0" min="0" class="btn btn-default">
+                        <button type="button" onclick="increment(-1,'techFouls3')" class="btn btn-danger">-</button>
+                    </div>
+                </div>
+                Rocket Placing
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="placementPosition3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Placement
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="placementPosition3">
+                        <a class="dropdown-item" href="javascript:return false;">All sides</a>
+                        <a class="dropdown-item" href="javascript:return false;">Near and Middle Side</a>
+                        <a class="dropdown-item" href="javascript:return false;">Near Side</a>
+                        <a class="dropdown-item" href="javascript:return false;">Can't place </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+
+    <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#endGame" aria-expanded="true" aria-controls="endGame">
+        Endgame
+    </button>
+
+    <div class="container-fluid collapse show" id="endGame">
+        <div class="row">
+
+            <div class="btn-group-vertical col">
+                <span class="btn-group-addon mx-auto"># of Climbed Robots </span>
+                <div class="btn-group w-100" data-toggle="buttons">
+                    <span class="w-25 btn-group-addon"> Level 1</span>
+                    <label class="w-25 btn btn-outline-danger">
+                        <input type="radio" name="robotsEndPosition" id="noRobots" autocomplete="off" value="0">
+                        0
+                    </label>
+                    <label class="w-25 btn btn-outline-primary">
+                        <input type="radio" name="robotsEndPosition" id="level1" autocomplete="off" value="1">1
+                    </label>
+
+                    <label class="w-25 btn btn-outline-warning">
+                        <input type="radio" name="robotsEndPosition" id="level2" autocomplete="off" value="2">2
+                    </label>
+
+                    <label class="w-25 btn btn-outline-success">
+                        <input type="radio" name="robotEndPosition" id="level3" autocomplete="off" value="3">3
+                    </label>
+                </div>
+                <div class="btn-group w-100 " data-toggle="buttons">
+                    <span class="w-25 btn-group-addon"> Level 2</span>
+                    <label class="w-25 btn btn-outline-danger">
+                        <input type="radio" name="robotsEndPosition" id="noRobots" autocomplete="off" value="0">
+                        0
+                    </label>
+
+                    <label class="w-25 btn btn-outline-primary">
+                        <input type="radio" name="robotsEndPosition" id="level1" autocomplete="off" value="1">1
+                    </label>
+
+                    <label class="w-25 btn btn-outline-warning">
+                        <input type="radio" name="robotsEndPosition" id="level2" autocomplete="off" value="2">2
+                    </label>
+
+                    <label class="w-25 btn btn-outline-success">
+                        <input type="radio" name="robotEndPosition" id="level3" autocomplete="off" value="3"> 3
+                    </label>
+                </div>
+                <div class="btn-group w-100" data-toggle="buttons">
+                    <span class="w-25 btn-group-addon"> Level 3</span>
+                    <label class="w-25 btn btn-outline-danger">
+                        <input type="radio" name="robotsEndPosition" id="noRobots" autocomplete="off" value="0">
+                        0
+                    </label>
+
+                    <label class="w-25 btn btn-outline-primary">
+                        <input type="radio" name="robotsEndPosition" id="level1" autocomplete="off" value="1">1
+                    </label>
+
+                    <label class="w-25 btn btn-outline-warning">
+                        <input type="radio" name="robotsEndPosition" id="level2" autocomplete="off" value="2">2
+                    </label>
+
+                    <label class="w-25 btn btn-outline-success">
+                        <input type="radio" name="robotEndPosition" id="level3" autocomplete="off" value="3"> 3
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#other" aria-expanded="true" aria-controls="postMatch">
+        Postmatch
+    </button>
+
+    <div class="container-fluid collapse show" id="other">
+        <br>
+        <div class="row">
+            <div class="btn-group col-sm-12" data-toggle="buttons">
+                <label class="btn btn-outline-secondary btn-block">
+                    <input type="checkbox" id="fullRocket">Full Rocket
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn-group col-sm-12" data-toggle="buttons">
+                <label class="btn btn-outline-secondary btn-block">
+                    <input type="checkbox" id="fullCargoShip">Full Cargo Ship
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class='col-sm-12'>
+                Comments
+                <div class="row">
+                    <div class="col">
+                <div class="form-group">
+                    <textarea class="form-control" rows='7' cols='50' id='comments1' placeholder='Important events in match: 
+-Inactivity/Broken Robots/Driving
+-Strikingly effective mechanisms(intakes/depositions/climbs)
+-Specifics on fouls recieved(accidental or on purpose?)'></textarea>
+                </div>
+                    </div>
+                    <div class="col">
+                    <div class="form-group">
+                    <textarea class="form-control" rows='7' cols='50' id='comments2' placeholder='Important events in match: 
+-Inactivity/Broken Robots/Driving
+-Strikingly effective mechanisms(intakes/depositions/climbs)
+-Specifics on fouls recieved(accidental or on purpose?)'></textarea>
+                </div>
+                    </div>
+                    <div class="col">
+                <div class="form-group">
+                    <textarea class="form-control" rows='7' cols='50' id='comments3' placeholder='Important events in match: 
+-Inactivity/Broken Robots/Driving(falls,smashes etc.)
+-Strikingly effective mechanisms(intakes/depositions/climbs) or control
+-Specifics on fouls recieved(accidental or on purpose?)'></textarea>
+                </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+    <!-- Submit Button -->
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <button class="btn btn-danger btn-block" onclick='writeNewPost()'>Submit</button>
+            </div>
+
+        </div>
+
+        <br>
+
+    </div>
+
+</body>
+
+</html>
