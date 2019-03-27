@@ -41,16 +41,21 @@
 
             <div class='col-sm-3'>
                 Scout Team
-                <input type='text' pattern="\d*" class='form-control' name='scoutTeam' id='scoutTeam' placeholder='2614' min='1' max='10000' />
+              <select class='form-control' name='scoutTeam' id='scoutTeam' >
+                
+                  <option selected value=2614>2614</option>
+                  <option value=2393>2393</option>
+                  <option value=932>932</option>
+               
+            </select>
             </div>
 
             <div class='col-sm-3'>
                 Competition
                 <select class='form-control' name='competition' id='competition' onchange='inputOtherCompetition(this.options[this.selectedIndex].value)'>
                     <option> Select Competition </option>
-                    <option selected value='Einstein'> Einstein</option>
                     <option value='Palmetto'>Palmetto</option>
-                    <option value='Smoky'>Smoky</option>
+                    <option selected value='Smoky'>Smoky</option>
                     <option value='Detroit'>Detroit</option>
                     <option value='Other'>Other</option>
                 </select>
@@ -87,21 +92,70 @@
                 Team Number
                 <input list="teams" pattern="\d*" class='form-control' name='teamNumber' id='teamNumber' placeholder='0' min='0' max='9999' />
                 <datalist id="teams">
-                    <option value=20>
-                    <option value=33>
-                    <option value=67>
-                    <option value=88>
-                    <option value=118>
-                    <option value=148>
-                    <option value=195>
-                    <option value=217>
-                    <option value=225>
-                    <option value=234>
-                    <option value=254>
-                    <option value=319>
-                    <option value=359>
-                    <option value=384>
-                    <option value=469>
+                    <option value=21>
+                    <option value=86>
+                    <option value=108>
+                    <option value=263>
+                    <option value=281>
+                    <option value=283>
+                    <option value=342>
+                    <option value=379>
+                    <option value=900>
+                    <option value=1051>
+                    <option value=1287>
+                    <option value=1293>
+                    <option value=1369>
+                    <option value=1398>
+                    <option value=1539>
+                    <option value=1553>
+                    <option value=1758>
+                    <option value=1902>
+                    <option value=2187>
+                    <option value=2393>
+                    <option value=2614>
+                    <option value=2815>
+                    <option value=3140>
+                    <option value=3489>
+                    <option value=3490>
+                    <option value=3651>
+                    <option value=3824>
+                    <option value=3976>
+                    <option value=4005>
+                    <option value=4020>
+                    <option value=4073>
+                    <option value=4074>
+                    <option value=4075>
+                    <option value=4083>
+                    <option value=4187>
+                    <option value=4243>
+                    <option value=4267>
+                    <option value=4451>
+                    <option value=4504>
+                    <option value=4582>
+                    <option value=4748>
+                    <option value=4823>
+                    <option value=4847>
+                    <option value=4965>
+                    <option value=5022>
+                    <option value=5063>
+                    <option value=5130>
+                    <option value=5317>
+                    <option value=5327>
+                    <option value=5410>
+                    <option value=5472>
+                    <option value=5777>
+                    <option value=5949>
+                    <option value=6167>
+                    <option value=6222>
+                    <option value=6366>
+                    <option value=6626>
+                    <option value=6961>
+                    <option value=7072>
+                    <option value=7085>
+                    <option value=7107>
+                    <option value=7152>
+                    <option value=7409>
+                    <option value=7489>
                 </datalist>
             </div>
 
@@ -109,227 +163,229 @@
         <br>
     </div>
 
-   
-    <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#autonomous" aria-expanded="true" aria-controls="Autonomous">
-        Autonomous
-    </button>
-    
-    <div class="collapse show" id="autonomous">
-        <br>
-        <div class="container-fluid row">
-            <div class="col-md-5 ">
+    <div class="accordion" id="autoAndTeleop">
+        <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#autonomous" aria-expanded="true" aria-controls="Autonomous">
+            Autonomous
+        </button>
 
-                <img class="startingPositionsImg" src="startingPositions.jpg">
-
-            </div>
-
-            <div class="col-md-7">
-
-                Start Location
-                <div class="row">
-
-                    <div class="btn-group col-sm-12" data-toggle="buttons">
-
-                        <label class="btn btn-outline-success w-25">
-                            <input type="radio" id="position1" name="startLocation" value="1"> 1
-                        </label>
-
-
-                        <label class="btn btn-outline-success w-25">
-                            <input type="radio" id="position2" name="startLocation" value="2"> 2
-                        </label>
-
-
-                        <label class="btn btn-outline-success w-25">
-                            <input type="radio" id="position3" name="startLocation" value="3"> 3
-                        </label>
-
-
-                        <label class="btn btn-outline-success w-25">
-                            <input type="radio" id="position4" name="startLocation" value="4"> 4
-                        </label>
-
-                        <label class="btn btn-outline-success w-25">
-                            <input type="radio" id="position5" name="startLocation" value="5"> 5
-                        </label>
-
-                    </div>
-
-                </div>
-                Auto Run
-                <div class="row">
-                    <div class="btn-group col-sm-12" data-toggle="buttons">
-                        <label class="btn btn-outline-secondary w-50">
-                            <input type="radio" name="autoRun" id="noAutoRun" value="0">No Run
-                        </label>
-                        <label class="btn btn-outline-secondary w-50">
-                            <input type="radio" name="autoRun" id="autoRunLow" value="1">Low Run
-                        </label>
-                        <label class="btn btn-outline-secondary w-50">
-                            <input type="radio" name="autoRun" id="autoRunHigh" value="2">High Run
-                        </label>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-
-                    <div class="btn-group-vertical col">
-                        Auto Low Hatches
-                        <button type="button" onclick="increment(1,'autoHatchesLow')" class="btn btn-primary">+</button>
-                        <input type="number" id="autoHatchesLow" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoHatchesLow')" class="btn btn-primary">-</button>
-                    </div>
-
-                    <div class="btn-group-vertical col">
-                        Auto Low Cargo
-                        <button type="button" onclick="increment(1,'autoCargoLow')" class="btn btn-warning">+</button>
-                        <input type="number" id="autoCargoLow" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoCargoLow')" class="btn btn-warning">-</button>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="btn-group-vertical col">
-                        Auto Mid Hatches
-                        <button type="button" onclick="increment(1,'autoHatchesMid')" class="btn btn-primary">+</button>
-                        <input type="number" id="autoHatchesMid" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoHatchesMid')" class="btn btn-primary">-</button>
-                    </div>
-
-                    <div class="btn-group-vertical col">
-                        Auto Mid Cargo
-                        <button type="button" onclick="increment(1,'autoCargoMid')" class="btn btn-warning">+</button>
-                        <input type="number" id="autoCargoMid" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoCargoMid')" class="btn btn-warning">-</button>
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="btn-group-vertical col">
-                        Auto High Hatches
-                        <button type="button" onclick="increment(1,'autoHatchesHigh')" class="btn btn-primary">+</button>
-                        <input type="number" id="autoHatchesHigh" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoHatchesHigh')" class="btn btn-primary">-</button>
-                    </div>
-
-                    <div class="btn-group-vertical col">
-                        Auto High Cargo
-                        <button type="button" onclick="increment(1,'autoCargoHigh')" class="btn btn-warning">+</button>
-                        <input type="number" id="autoCargoHigh" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoCargoHigh')" class="btn btn-warning">-</button>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="btn-group-vertical col">
-                        Auto Miss Hatches
-                        <button type="button" onclick="increment(1,'autoHatchesMissed')" class="btn btn-primary">+</button>
-                        <input type="number" id="autoHatchesMissed" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoHatchesMissed')" class="btn btn-primary">-</button>
-                    </div>
-                    <div class="btn-group-vertical col">
-                        Auto Miss Cargo
-                        <button type="button" onclick="increment(1,'autoCargoMissed')" class="btn btn-warning">+</button>
-                        <input type="number" id="autoCargoMissed" placeholder="0" min="0" class="btn btn-default">
-                        <button type="button" onclick="increment(-1,'autoCargoMissed')" class="btn btn-warning">-</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-          <br>
-    </div>
-  
-    <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#teleop" aria-expanded="true" aria-controls="teleop">
-        Teleop
-    </button>
-  
-    <div class="container-fluid collapse show" id="teleop">
-  <br>
-        <div class='row'>
-
-            <div class="btn-group-vertical col">
-                Teleop Low Hatches
-                <button type="button" onclick="increment(1,'teleopHatchesLow')" class="btn btn-primary">+</button>
-                <input type="number" id="teleopHatchesLow" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopHatchesLow')" class="btn btn-primary">-</button>
-            </div>
-
-            <div class="btn-group-vertical col">
-                Teleop Low Cargo
-                <button type="button" onclick="increment(1,'teleopCargoLow')" class="btn btn-warning">+</button>
-                <input type="number" id="teleopCargoLow" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopCargoLow')" class="btn btn-warning">-</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="btn-group-vertical col">
-                Teleop Mid Hatches
-                <button type="button" onclick="increment(1,'teleopHatchesMid')" class="btn btn-primary">+</button>
-                <input type="number" id="teleopHatchesMid" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopHatchesMid')" class="btn btn-primary">-</button>
-            </div>
-
-            <div class="btn-group-vertical col">
-                Teleop Mid Cargo
-                <button type="button" onclick="increment(1,'teleopCargoMid')" class="btn btn-warning">+</button>
-                <input type="number" id="teleopCargoMid" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopCargoMid')" class="btn btn-warning">-</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="btn-group-vertical col">
-                Teleop High Hatches
-                <button type="button" onclick="increment(1,'teleopHatchesHigh')" class="btn btn-primary">+</button>
-                <input type="number" id="teleopHatchesHigh" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopHatchesHigh')" class="btn btn-primary">-</button>
-            </div>
-
-            <div class="btn-group-vertical col">
-                Teleop High Cargo
-                <button type="button" onclick="increment(1,'teleopCargoHigh')" class="btn btn-warning">+</button>
-                <input type="number" id="teleopCargoHigh" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopCargoHigh')" class="btn btn-warning">-</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="btn-group-vertical col">
-                Teleop Miss Hatches
-                <button type="button" onclick="increment(1,'teleopHatchesMissed')" class="btn btn-primary">+</button>
-                <input type="number" id="teleopHatchesMissed" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopHatchesMissed')" class="btn btn-primary">-</button>
-            </div>
-            <div class="btn-group-vertical col">
-                Teleop Miss Cargo
-                <button type="button" onclick="increment(1,'teleopCargoMissed')" class="btn btn-warning">+</button>
-                <input type="number" id="teleopCargoMissed" placeholder="0" min="0" class="btn btn-default">
-                <button type="button" onclick="increment(-1,'teleopCargoMissed')" class="btn btn-warning">-</button>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-
-            <div class="btn-group col-sm-12" data-toggle="buttons">
-                <label class="btn btn-outline-secondary btn-block">
-                    <input type="checkbox" id="playedDefense">Played Defense
-                </label>
-            </div>
-        </div>
+        <div class="collapse show" id="autonomous">
             <br>
-    </div>
+            <div class="container-fluid row">
+                <div class="col-md-5 ">
 
+                    <img class="startingPositionsImg" src="startingPositions.jpg">
+
+                </div>
+
+                <div class="col-md-7">
+
+                    Start Location
+                    <div class="row">
+
+                        <div class="btn-group col-sm-12" data-toggle="buttons">
+
+                            <label class="btn btn-outline-success w-25">
+                                <input type="radio" id="position1" name="startLocation" value="1"> 1
+                            </label>
+
+
+                            <label class="btn btn-outline-success w-25">
+                                <input type="radio" id="position2" name="startLocation" value="2"> 2
+                            </label>
+
+
+                            <label class="btn btn-outline-success w-25">
+                                <input type="radio" id="position3" name="startLocation" value="3"> 3
+                            </label>
+
+
+                            <label class="btn btn-outline-success w-25">
+                                <input type="radio" id="position4" name="startLocation" value="4"> 4
+                            </label>
+
+                            <label class="btn btn-outline-success w-25">
+                                <input type="radio" id="position5" name="startLocation" value="5"> 5
+                            </label>
+
+                        </div>
+
+                    </div>
+                    Auto Run
+                    <div class="row">
+                        <div class="btn-group col-sm-12" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary w-50">
+                                <input type="radio" name="autoRun" id="noAutoRun" value="0">No Run
+                            </label>
+                            <label class="btn btn-outline-secondary w-50">
+                                <input type="radio" name="autoRun" id="autoRunLow" value="1">Low Run
+                            </label>
+                            <label class="btn btn-outline-secondary w-50">
+                                <input type="radio" name="autoRun" id="autoRunHigh" value="2">High Run
+                            </label>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="btn-group-vertical col">
+                            Auto CS Hatches
+                            <button type="button" onclick="increment(1,'autoHatchesCS')" class="btn btn-primary">+</button>
+                            <input type="number" id="autoHatchesCS" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoHatchesCS')" class="btn btn-primary">-</button>
+                        </div>
+
+                        <div class="btn-group-vertical col">
+                            Auto CS Cargo
+                            <button type="button" onclick="increment(1,'autoCargoCS')" class="btn btn-warning">+</button>
+                            <input type="number" id="autoCargoCS" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoCargoCS')" class="btn btn-warning">-</button>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="btn-group-vertical col">
+                            Auto Low Hatches
+                            <button type="button" onclick="increment(1,'autoHatchesLow')" class="btn btn-primary">+</button>
+                            <input type="number" id="autoHatchesLow" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoHatchesLow')" class="btn btn-primary">-</button>
+                        </div>
+
+                        <div class="btn-group-vertical col">
+                            Auto Low Cargo
+                            <button type="button" onclick="increment(1,'autoCargoLow')" class="btn btn-warning">+</button>
+                            <input type="number" id="autoCargoLow" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoCargoLow')" class="btn btn-warning">-</button>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="btn-group-vertical col">
+                            Auto Mid Hatches
+                            <button type="button" onclick="increment(1,'autoHatchesMid')" class="btn btn-primary">+</button>
+                            <input type="number" id="autoHatchesMid" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoHatchesMid')" class="btn btn-primary">-</button>
+                        </div>
+
+                        <div class="btn-group-vertical col">
+                            Auto Mid Cargo
+                            <button type="button" onclick="increment(1,'autoCargoMid')" class="btn btn-warning">+</button>
+                            <input type="number" id="autoCargoMid" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoCargoMid')" class="btn btn-warning">-</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="btn-group-vertical col">
+                            Auto High Hatches
+                            <button type="button" onclick="increment(1,'autoHatchesHigh')" class="btn btn-primary">+</button>
+                            <input type="number" id="autoHatchesHigh" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoHatchesHigh')" class="btn btn-primary">-</button>
+                        </div>
+
+                        <div class="btn-group-vertical col">
+                            Auto High Cargo
+                            <button type="button" onclick="increment(1,'autoCargoHigh')" class="btn btn-warning">+</button>
+                            <input type="number" id="autoCargoHigh" placeholder="0" min="0" class="btn btn-default">
+                            <button type="button" onclick="increment(-1,'autoCargoHigh')" class="btn btn-warning">-</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+        </div>
+
+        <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#teleop" aria-expanded="true" aria-controls="teleop">
+            Teleop
+        </button>
+
+        <div class="container-fluid collapse show" id="teleop">
+            <br>
+            <div class="row">
+                <div class="btn-group-vertical col">
+                    Teleop CS Hatches
+                    <button type="button" onclick="increment(1,'teleopHatchesCS')" class="btn btn-primary">+</button>
+                    <input type="number" id="teleopHatchesCS" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopHatchesCS')" class="btn btn-primary">-</button>
+                </div>
+
+                <div class="btn-group-vertical col">
+                    Teleop CS Cargo
+                    <button type="button" onclick="increment(1,'teleopCargoCS')" class="btn btn-warning">+</button>
+                    <input type="number" id="teleopCargoCS" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopCargoCS')" class="btn btn-warning">-</button>
+                </div>
+            </div>
+            <div class='row'>
+
+                <div class="btn-group-vertical col">
+                    Teleop Low Hatches
+                    <button type="button" onclick="increment(1,'teleopHatchesLow')" class="btn btn-primary">+</button>
+                    <input type="number" id="teleopHatchesLow" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopHatchesLow')" class="btn btn-primary">-</button>
+                </div>
+
+                <div class="btn-group-vertical col">
+                    Teleop Low Cargo
+                    <button type="button" onclick="increment(1,'teleopCargoLow')" class="btn btn-warning">+</button>
+                    <input type="number" id="teleopCargoLow" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopCargoLow')" class="btn btn-warning">-</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="btn-group-vertical col">
+                    Teleop Mid Hatches
+                    <button type="button" onclick="increment(1,'teleopHatchesMid')" class="btn btn-primary">+</button>
+                    <input type="number" id="teleopHatchesMid" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopHatchesMid')" class="btn btn-primary">-</button>
+                </div>
+
+                <div class="btn-group-vertical col">
+                    Teleop Mid Cargo
+                    <button type="button" onclick="increment(1,'teleopCargoMid')" class="btn btn-warning">+</button>
+                    <input type="number" id="teleopCargoMid" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopCargoMid')" class="btn btn-warning">-</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group-vertical col">
+                    Teleop High Hatches
+                    <button type="button" onclick="increment(1,'teleopHatchesHigh')" class="btn btn-primary">+</button>
+                    <input type="number" id="teleopHatchesHigh" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopHatchesHigh')" class="btn btn-primary">-</button>
+                </div>
+
+                <div class="btn-group-vertical col">
+                    Teleop High Cargo
+                    <button type="button" onclick="increment(1,'teleopCargoHigh')" class="btn btn-warning">+</button>
+                    <input type="number" id="teleopCargoHigh" placeholder="0" min="0" class="btn btn-default">
+                    <button type="button" onclick="increment(-1,'teleopCargoHigh')" class="btn btn-warning">-</button>
+                </div>
+            </div>
+
+
+            <br>
+            <div class="row">
+
+                <div class="btn-group col-sm-12" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-block">
+                        <input type="checkbox" id="playedDefense">Played Defense
+                    </label>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
     <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#endGame" aria-expanded="true" aria-controls="endGame">
         Endgame
     </button>
 
     <div class="container-fluid collapse show" id="endGame">
-    <br>
+        <br>
         <div class="row">
 
             <div class="btn-group col-sm-12" data-toggle="buttons">
@@ -365,7 +421,7 @@
                 <div class="w-100 btn-group m-1" data-toggle="buttons">
                     <span class="w-25 input-group-addon">L 2 Assists</span>
                     <button type="button" onclick="increment(-1,'assistedLevel2Climbs')" class="btn btn-info w-25">-</button>
-                    <input type="number" name="robotEndPosition" id="assistedLevel2Climbs" value="0"  min="0" max="2" class="w-25 btn btn-outline">
+                    <input type="number" name="robotEndPosition" id="assistedLevel2Climbs" value="0" min="0" max="2" class="w-25 btn btn-outline">
                     <button type="button" onclick="increment(1,'assistedLevel2Climbs')" class="btn btn-info w-25">+</button>
                 </div>
                 <div class="w-100 btn-group m-1" data-toggle="buttons">
@@ -376,15 +432,15 @@
                 </div>
             </div>
         </div>
-          <br>
+        <br>
     </div>
-  
+
     <button class="btn-lg btn-danger btn-block w-100" type="button" data-toggle="collapse" data-target="#other" aria-expanded="true" aria-controls="postMatch">
         Postmatch
     </button>
-   
+
     <div class="container-fluid collapse show" id="other">
- <br>
+        <br>
         <div class="row">
 
             <div class="col-sm-12 btn-group" data-toggle="buttons">

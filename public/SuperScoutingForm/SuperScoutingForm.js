@@ -25,7 +25,7 @@ $(function () {
 
 function updateTeamNum(teamNum) {
     console.log("change occurred at " + teamNum + " to " + document.getElementById('teamNumber' + teamNum).value);
-    $("span.team" + teamNum).text(( "Team #"+ document.getElementById('teamNumber' + teamNum).value));
+    $("span.team" + teamNum).text(("Team #" + document.getElementById('teamNumber' + teamNum).value));
 }
 
 function inputOtherCompetition(name) {
@@ -65,14 +65,17 @@ function writeNewPost() {
     var teamNumber1 = document.getElementById("teamNumber1").value;
     if (teamNumber1 == null || teamNumber1 == "")
         teamNumber1 = "9999";
+    console.log(teamNumber1);
     var teamNumber2 = document.getElementById("teamNumber2").value;
     if (teamNumber2 == null || teamNumber2 == "")
         teamNumber2 = "9999";
+    console.log(teamNumber2);
     var teamNumber3 = document.getElementById("teamNumber3").value;
-    if (teamNumber3 == null || teamNumber == "")
+    if (teamNumber3 == null || teamNumber3 == "")
         teamNumber3 = "9999";
+    console.log(teamNumber3);
     //  Autonomous Inputs
-    
+
     var autoDescrip1 = document.getElementById("autoDescrip1").value;
     if (autoDescrip1 == null || autoDescrip1 == "")
         autoDescrip1 = 0;
@@ -92,8 +95,8 @@ function writeNewPost() {
     var placementPosition1 = document.getElementById("placementPosition1").value;
     if (placementPosition1 == null || placementPosition1 == "")
         placementPosition1 = 0;
-    
-     var fouls2 = document.getElementById("fouls2").value;
+
+    var fouls2 = document.getElementById("fouls2").value;
     if (fouls2 == null || fouls2 == "")
         fouls2 = 0;
     var techFouls2 = document.getElementById("techFouls2").value;
@@ -102,8 +105,8 @@ function writeNewPost() {
     var placementPosition2 = document.getElementById("placementPosition2").value;
     if (placementPosition2 == null || placementPosition2 == "")
         placementPosition2 = 0;
-    
-      var fouls3 = document.getElementById("fouls3").value;
+
+    var fouls3 = document.getElementById("fouls3").value;
     if (fouls3 == null || fouls3 == "")
         fouls3 = 0;
     var techFouls3 = document.getElementById("techFouls3").value;
@@ -112,45 +115,97 @@ function writeNewPost() {
     var placementPosition3 = document.getElementById("placementPosition3").value;
     if (placementPosition3 == null || placementPosition3 == "")
         placementPosition3 = 0;
-    
-     
+
+
     var comments1 = document.getElementById("comments1").value;
     var comments2 = document.getElementById("comments2").value;
     var comments3 = document.getElementById("comments3").value;
 
-    var postData1 = {
-        "Data": {
-            "DateTime": Date(),
-            "ScoutName": scoutName,
-            "ScoutTeam": scoutTeam,
-            "Competition": competition,
-            "Alliance": allianceValue,
-            "MatchNumber": matchNumber,
-            "teamNumber1": teamNumber1,
+    var fullCargoShip = document.getElementById("fullCargoShip").checked;
+    var fullRocket = document.getElementById("fullRocket").checked;
+    
+//    var autoRunArray = document.getElementsByName("autoRun");
+//    console.log(autoRunArray)
+//    var climbsLevel1;
+//    for (var i = 0; i < autoRunArray.length; i++) {
+//        if (autoRunArray[i].checked) {
+//            autoRun = autoRunArray[i].value;
+//            break;
+//        }
+//    }
+    var postData = {
+        data: {
+            "Team1": {
+                "DateTime": Date(),
+                "ScoutName": scoutName,
+                "ScoutTeam": scoutTeam,
+                "Competition": competition,
+                "Alliance": allianceValue,
+                "MatchNumber": matchNumber,
+                "teamNumber": teamNumber1,
 
-            "autoDescrip1": autoDescrip1,
-            
-            "fouls1":fouls1,
-            "techFouls1":techFouls1,
-            "placementPosition1":placementPosition1,
-            "comments1":comments1
-            
+                "autoDescrip": autoDescrip1,
+
+                "fouls": fouls1,
+                "techFouls": techFouls1,
+                "placementPosition": placementPosition1,
+                "comments": comments1,
+                
+                "fullCargoShip":fullCargoShip,
+                "fullRocket":fullRocket
+            },
+            "Team2": {
+                "DateTime": Date(),
+                "ScoutName": scoutName,
+                "ScoutTeam": scoutTeam,
+                "Competition": competition,
+                "Alliance": allianceValue,
+                "MatchNumber": matchNumber,
+                "teamNumber": teamNumber2,
+
+                "autoDescrip": autoDescrip2,
+
+                "fouls": fouls2,
+                "techFouls": techFouls2,
+                "placementPosition": placementPosition2,
+                "comments": comments2,
+
+                "fullCargoShip":fullCargoShip,
+                "fullRocket":fullRocket
+            },
+            "Team3": {
+                "DateTime": Date(),
+                "ScoutName": scoutName,
+                "ScoutTeam": scoutTeam,
+                "Competition": competition,
+                "Alliance": allianceValue,
+                "MatchNumber": matchNumber,
+                "teamNumber": teamNumber3,
+
+                "autoDescrip": autoDescrip3,
+
+                "fouls": fouls3,
+                "techFouls": techFouls3,
+                "placementPosition": placementPosition3,
+                "comments": comments3,
+                
+                "fullCargoShip":fullCargoShip,
+                "fullRocket":fullRocket
+            }
         }
     }
-
     console.log(postData);
     postData = JSON.stringify(postData);
-
     var xhr = new XMLHttpRequest();
-    //    var url = "https://script.google.com/macros/s/AKfycbxX0uNCpgOMGFuD225KOYNrDALAh1mW64hV5ukrwEi1IYFW1LQk/exec";
-    //    xhr.open("POST", url, true);
-    //    xhr.send(postData);
-
+    
+    var url = "https://script.google.com/macros/s/AKfycbxX0uNCpgOMGFuD225KOYNrDALAh1mW64hV5ukrwEi1IYFW1LQk/exec";
+    xhr.open("POST", url, true);
+    xhr.send(postData);
+  
     //    //renames the outmost hierarchy of JSON which makes no duplicates
     //    postData = postData.replace("\"Data\"", "\"" + competition + " | Team " + teamNumber + " | Qualification Match " + matchNumber + "\"");
     //    postData = JSON.parse(postData);
     //    firebase.database().ref().update(postData);
 
     window.alert("Thank you for submitting!");
-
 }

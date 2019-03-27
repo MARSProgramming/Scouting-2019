@@ -14,7 +14,11 @@ function increment(increaseValue, tagID) {
     console.log(document.getElementById(tagID).value);
     console.log(document.getElementById(tagID).max)
 }
-
+function autoOrTeleop(state){
+    if(state == 'auto'){
+        console.log(document.getElementById(autoCollapser).data-toggle);
+    }
+}
 function inputOtherCompetition(name) {
     if (name == 'Other')
         document.getElementById('otherCompetitionInput').innerHTML = 'Other Competition: <input type="text" id="otherCompetition" />';
@@ -84,9 +88,9 @@ function writeNewPost() {
     var autoHatchesHigh = document.getElementById("autoHatchesHigh").value;
     if (autoHatchesHigh == null || autoHatchesHigh == "")
         autoHatchesHigh = 0;
-    var autoHatchesMissed = document.getElementById("autoHatchesMissed").value;
-    if (autoHatchesMissed == null || autoHatchesMissed == "")
-        autoHatchesMissed = 0;
+    var autoHatchesCS = document.getElementById("autoHatchesCS").value;
+    if (autoHatchesCS == null || autoHatchesCS == "")
+        autoHatchesCS = 0;
     var autoCargoLow = document.getElementById("autoCargoLow").value;
     if (autoCargoLow == null || autoCargoLow == "")
         autoCargoLow = 0;
@@ -96,9 +100,9 @@ function writeNewPost() {
     var autoCargoHigh = document.getElementById("autoCargoHigh").value;
     if (autoCargoHigh == null || autoCargoHigh == "")
         autoCargoHigh = 0;
-    var autoCargoMissed = document.getElementById("autoCargoMissed").value;
-    if (autoCargoMissed == null || autoCargoHigh == "")
-        autoCargoMissed = 0;
+    var autoCargoCS = document.getElementById("autoCargoCS").value;
+    if (autoCargoCS == null || autoCargoCS == "")
+        autoCargoCS = 0;
 
     //  Teleop Inputs
     var teleopHatchesLow = document.getElementById("teleopHatchesLow").value;
@@ -110,9 +114,9 @@ function writeNewPost() {
     var teleopHatchesHigh = document.getElementById("teleopHatchesHigh").value;
     if (teleopHatchesHigh == null || teleopHatchesHigh == "")
         teleopHatchesHigh = 0;
-    var teleopHatchesMissed = document.getElementById("teleopHatchesMissed").value;
-    if (teleopHatchesMissed == null || teleopHatchesMissed == "")
-        teleopHatchesMissed = 0;
+    var teleopHatchesCS = document.getElementById("teleopHatchesCS").value;
+    if (teleopHatchesCS == null || teleopHatchesCS == "")
+        teleopHatchesCS = 0;
     var teleopCargoLow = document.getElementById("teleopCargoLow").value;
     if (teleopCargoLow == null || teleopCargoLow == "")
         teleopCargoLow = 0;
@@ -122,9 +126,9 @@ function writeNewPost() {
     var teleopCargoHigh = document.getElementById("teleopCargoHigh").value;
     if (teleopCargoHigh == null || teleopCargoHigh == "")
         teleopCargoHigh = 0;
-    var teleopCargoMissed = document.getElementById("teleopCargoMissed").value;
-    if (teleopCargoMissed == null || teleopCargoHigh == "")
-        teleopCargoMissed = 0;
+    var teleopCargoCS = document.getElementById("teleopCargoCS").value;
+    if (teleopCargoCS == null || teleopCargoCS == "")
+        teleopCargoCS = 0;
 
     var playedDefense = document.getElementById("playedDefense").checked ? true : false;
     var robotEndPosition = document.getElementsByName("robotEndPosition");
@@ -163,20 +167,20 @@ function writeNewPost() {
             "autoHatchesLow": autoHatchesLow,
             "autoHatchesMid": autoHatchesMid,
             "autoHatchesHigh": autoHatchesHigh,
-            "autoHatchesMissed": autoHatchesMissed,
+            "autoHatchesCS": autoHatchesCS,
             "autoCargoLow": autoCargoLow,
             "autoCargoMid": autoCargoMid,
             "autoCargoHigh": autoCargoHigh,
-            "autoCargoMissed" : autoCargoMissed,
+            "autoCargoCS" : autoCargoCS,
 
             "teleopHatchesLow": teleopHatchesLow,
             "teleopHatchesMid": teleopHatchesMid,
             "teleopHatchesHigh": teleopHatchesHigh,
-            "teleopHatchesMissed": teleopHatchesMissed,
+            "teleopHatchesCS": teleopHatchesCS,
             "teleopCargoLow": teleopCargoLow,
             "teleopCargoMid": teleopCargoMid,
             "teleopCargoHigh": teleopCargoHigh,
-            "teleopCargoMissed" : teleopCargoMissed,
+            "teleopCargoCS" : teleopCargoCS,
 
             "PlayedDefense": playedDefense,
             "RobotEndPosition": robotEndPositionValue,
@@ -193,7 +197,7 @@ function writeNewPost() {
     postData = JSON.stringify(postData);
 
     var xhr = new XMLHttpRequest();
-    var url = "https://script.google.com/macros/s/AKfycbxX0uNCpgOMGFuD225KOYNrDALAh1mW64hV5ukrwEi1IYFW1LQk/exec";
+    var url = "https://script.google.com/macros/s/AKfycbwW7w7ktsWQ1NNURPlZqmKaZT4sKaJZ3KJg4pa_RVNhDxqZZX0/exec";
     xhr.open("POST", url, true);
     xhr.send(postData);
 
